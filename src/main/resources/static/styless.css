@@ -11,14 +11,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
 }
 .centro{
     display: flex;
     align-items: center;
     gap: 15px;
-    background-color: rgba(255,255,255,0.8);
     padding: 15 20px;
     border-radius: 10px;
+    margin-top: 100px;
 }
 select{
     padding: 6px 10px;
@@ -30,7 +31,45 @@ select{
     color: #333;
 }
 .Sharizard{
-    width: 100px;
+    width: 200px;
     height: auto;
     border-radius: 8px;
 }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.card {
+    background-color: #f4f4f4;
+    padding: 15px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.volver {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.volver a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+

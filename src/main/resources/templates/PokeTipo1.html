@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thyemeleaf/layout"
+      layout:decorate = ~{layout}>
+
+    <body>
+        <h2>Pokémon del tipo seleccionado</h2>
+
+        <div layout:fragment = "content">
+            <div class="grid">
+                <div class="card" th:each="p : ${pokemones}">
+                    <img th:src="${p.imagen}" th:alt="${p.nombre}" />
+                    <h3 th:text="${p.nombre}">Nombre</h3>
+                    <p>HP: <span th:text="${p.hp}">0</span></p>
+                    <p>Ataque: <span th:text="${p.ataque}">0</span></p>
+                    <p>Defensa: <span th:text="${p.defensa}">0</span></p>
+                </div>
+            </div>
+        </div>>
+
+        <div class="volver">
+            <a th:href="@{/}">Volver al inicio</a>
+        </div>
+    </body>
+</html>
