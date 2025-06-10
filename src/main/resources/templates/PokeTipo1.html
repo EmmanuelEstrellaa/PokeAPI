@@ -17,7 +17,7 @@
             <div class="paginacion" style="text-align: center; margin-top: 30px;">
                 <ul class="pagination justify-content-center">
                     <li class="page-item" th:classappend="${currentPage == 1} ? 'disabled'">
-                        <a class="page-link" th:href="@{'/Pokemones/tipo/' + ${tipoId} + '?page=' + (${currentPage} - 1)}">Anterior</a>
+                        <a class="page-link" th:href="@{'/Pokemones/tipo/' + ${tipoId} + '?page=' + ${currentPage - 1} }">Anterior</a>
                     </li>
                     <li class="page-item" th:each="i : ${#numbers.sequence(1, totalPages)}"
                         th:classappend="${i == currentPage} ? 'active'">
@@ -27,7 +27,7 @@
                     </li>
 
                     <li class="page-item" th:classappend="${currentPage == totalPages} ? 'disabled'">
-                        <a class="page-link" th:href="@{'/Pokemones/tipo/' + ${tipoId} + '?page=' + (${currentPage} + 1)}">Siguiente</a>
+                        <a class="page-link" th:href="@{'/Pokemones/tipo/' + ${tipoId} + '?page=' + ${currentPage + 1}}">Siguiente</a>
                     </li>
                 </ul>
             </div>
