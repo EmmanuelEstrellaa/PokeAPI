@@ -5,6 +5,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    background-attachment: fixed;
 }
 .principal{
     height: 10vh;
@@ -28,7 +29,8 @@ select{
     border: 1px solid #aaa;
     min-width: 160px;
     background-color: #fff;
-    color: #333;
+    color: activeborder;
+    margin-top: 80px;
 }
 .Sharizard{
     width: 200px;
@@ -38,23 +40,34 @@ select{
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 40px auto;
 }
 
-.card {
+.card{
     background-color: #f4f4f4;
     padding: 15px;
     text-align: center;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    /*background: linear-gradient(179deg,rgba(26, 185, 199, 1) 0%, rgba(143, 227, 104, 1) 63%);*/
+    background: linear-gradient(179deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%);
+
+
+
+}
+
+.card:hover{
+    transform: scale(1.05);
+    transition: all 0.3 esse;
 }
 
 .card img {
-    width: 100px;
+    width: 200px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 h2 {

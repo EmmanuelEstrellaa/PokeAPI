@@ -5,7 +5,6 @@ import com.digis01.PokeAPI.ML.Result;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -15,18 +14,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 @Controller
 @RequestMapping("/Pokemones")
 public class PokeController {
 
+    
     private RestTemplate restTemplate = new RestTemplate();
 
-//    @GetMapping
-//    public String Index() {
-//        return "Index";
-//    }
     @GetMapping
     public String Index(Model model) {
         String url = "https://pokeapi.co/api/v2/type";
@@ -46,9 +43,10 @@ public class PokeController {
     }
 
     @GetMapping("/tipo/{id}")
-    public String PokeTipo1(@PathVariable int id, Model model) {
+    public String PokeTipo1(@PathVariable int id, @RequestParam(defaultValue = "1")int page, Model model) {
         Result result = new Result();
         String url = "https://pokeapi.co/api/v2/type/" + id;
+        int pageSize = 12;
 
         ResponseEntity<Map> response = restTemplate.exchange(
                 url,
@@ -62,7 +60,12 @@ public class PokeController {
 
         List<PokeTipo1> detalles = new ArrayList<>();
 
-        for (Map<String, Object> poke : pokemones) {
+        
+        int start = (page - 1) * pageSize;
+        int end = Math.min(start + pageSize, pokemones.size());
+        
+        for (int i = start; i < end; i++) {
+            Map<String, Object> poke = pokemones.get(i);
             Map<String, String> details = (Map<String, String>) poke.get("pokemon");
             String nombre = details.get("name");
 
@@ -82,17 +85,16 @@ public class PokeController {
                 Map<String, String> sprites = (Map<String, String>) datos.get("sprites");
                 //Stats
                 List<Map<String, Object>> stats = (List<Map<String, Object>>) datos.get("stats");
-                
+
                 PokeTipo1 saveDetails = new PokeTipo1();
-                
+
                 saveDetails.setNombre(nombre);
                 saveDetails.setImagen((String) sprites.get("front_default"));
                 saveDetails.setHp((Integer) stats.get(0).get("base_stat"));
                 saveDetails.setAtaque((Integer) stats.get(1).get("base_stat"));
                 saveDetails.setDefensa((Integer) stats.get(2).get("base_stat"));
-                
+
                 detalles.add(saveDetails);
-;                
 
             } catch (Exception ex) {
                 result.correct = false;
@@ -103,8 +105,14 @@ public class PokeController {
 
         }
         
+        int totalPages = (int) Math.ceil((double) pokemones.size() / pageSize);
+
         model.addAttribute("pokemones", detalles);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("tipoId", id);
         return "PokeTipo1";
     }
 
+    
 }

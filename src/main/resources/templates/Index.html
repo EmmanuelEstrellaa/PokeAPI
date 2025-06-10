@@ -7,13 +7,13 @@
         <div layout:fragment = "content">
             <div class="principal">
                 <div class="centro">
-                    <img th:src="@{shari.png}" alt="Sharizard" class="Sharizard">
                     <form>
                         <select name="tipo" id="tipo"  onchange="redirigirPorTipo()" class="form-select">
-                            <option value="">Selecciona un tipo de pokemon</option>
-                            <option  th:each="tipo, iterStat : ${tipos}" th:value="${iterStat.index + 1}" th:text="${tipo.name}"></option>
+                            <option class= "text-capitalize" value="">Selecciona un tipo de pokemon</option>
+                            <option  class= "text-capitalize" th:each="tipo, iterStat : ${tipos}" th:value="${iterStat.index + 1}" th:text="${tipo.name}"></option>
                         </select> 
                     </form>    
+                    <img th:src="@{shari.png}" alt="Sharizard" class="Sharizard">
 
                 </div>
             </div>
