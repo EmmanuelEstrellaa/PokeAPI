@@ -86,3 +86,41 @@ h2 {
     font-weight: bold;
 }
 
+.pokemon-animado {
+  animation: ondear 6s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes ondear {
+  0% {
+    transform: translateX(0) translateY(0) skewY(0deg);
+  }
+
+  15% {
+    transform: translateX(10px) translateY(3px) skewY(3deg);
+  }
+
+  30% {
+    transform: translateX(-5px) translateY(5px) skewY(6deg);
+  }
+
+  45% {
+    transform: translateX(0) translateY(0) skewY(0deg);
+  }
+
+  60% {
+    transform: translateX(5px) translateY(-3px) skewY(-3deg);
+  }
+
+  75% {
+    transform: translateX(-8px) translateY(2px) skewY(4deg);
+  }
+
+  90% {
+    transform: translateX(0) translateY(0) skewY(0deg);
+  }
+
+  100% {
+    transform: translateX(0) translateY(0) skewY(0deg);
+  }
+}
