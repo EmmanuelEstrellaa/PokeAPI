@@ -5,15 +5,44 @@
     <body>
         <div layout:fragment = "content">
             <div class="grid">
+                <!--                <a class="card" th:each="p : ${pokemones}" th:href="@{/Pokemones/PokeDetails}">
+                                    <img th:src="${p.imagen}" th:alt="${p.nombre}" />
+                                    <h3 class= "text-capitalize" th:text="${p.nombre}">Nombre</h3>
+                                    <p><i class="bi bi-heart-fill" style="color: red"></i> HP: <span th:text="${p.hp}">0</span></p>
+                                    <p><span class="material-symbols-outlined">
+                                            swords
+                                        </span> Ataque: <span th:text="${p.ataque}"></span></p>
+                                    <p><i class="bi bi-shield-shaded" style="color: black"></i> Defensa: <span th:text="${p.defensa}">0</span></p>
+                                </a>-->
+
                 <div class="card" th:each="p : ${pokemones}">
-                    <img th:src="${p.imagen}" th:alt="${p.nombre}" />
-                    <h3 class= "text-capitalize" th:text="${p.nombre}">Nombre</h3>
-                    <p>HP: <span th:text="${p.hp}">0</span></p>
-                    <p>Ataque: <span th:text="${p.ataque}">0</span></p>
-                    <p>Defensa: <span th:text="${p.defensa}">0</span></p>
-                    <button>Detalles</button>
+                    <div class="book">
+                        <p class="text">
+                            <i class="bi bi-heart-fill" style="color: red"></i> HP: <span th:text="${p.hp}">0</span>
+                        </p>
+                        <div class="inner">
+                            <p class="text"><img th:src="${p.imagen}" th:alt="${p.nombre}" /></p>
+                        </div>
+                        <div class="cover">
+                            <p class="text"><img th:src="${p.imagen}" th:alt="${p.nombre}" />
+
+                        </div>
+                    </div>
+                    <br>
+                    <h3 class="text-capitalize" th:text="${p.nombre}">Nombre</h3>
                 </div>
+
             </div>   
+
+
+
+
+
+
+
+
+
+
             <div class="paginacion" style="text-align: center; margin-top: 30px;">
                 <ul class="pagination justify-content-center">
                     <li class="page-item" th:classappend="${currentPage == 1} ? 'disabled'">

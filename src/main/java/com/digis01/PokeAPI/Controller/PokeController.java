@@ -114,5 +114,11 @@ public class PokeController {
         return "PokeTipo1";
     }
 
+    @GetMapping("/PokeDetails")
+    public String PokeDetails(){
+        return "PokeDetails";
+    }
+    
+   
     
 }

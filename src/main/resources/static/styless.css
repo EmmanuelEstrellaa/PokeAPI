@@ -8,6 +8,7 @@ body {
     background-attachment: fixed;
 }
 .principal{
+    /*position: relative;*/
     height: 10vh;
     display: flex;
     justify-content: center;
@@ -40,13 +41,28 @@ select{
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     max-width: 1000px;
     margin: 40px auto;
 }
 
+
 .card{
+    background-color: #f4f4f4;
+    padding: 15px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    /*background: linear-gradient(179deg,rgba(26, 185, 199, 1) 0%, rgba(143, 227, 104, 1) 63%);*/
+    background: linear-gradient(179deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%);
+    /*position: absolute;*/
+    z-index: 10;
+
+
+
+}
+.detalle{
     background-color: #f4f4f4;
     padding: 15px;
     text-align: center;
@@ -60,6 +76,10 @@ select{
 }
 
 .card:hover{
+    transform: scale(1.05);
+    transition: all 0.3 esse;
+}
+.detalle :hover{
     transform: scale(1.05);
     transition: all 0.3 esse;
 }
@@ -87,40 +107,155 @@ h2 {
 }
 
 .pokemon-animado {
-  animation: ondear 6s ease-in-out infinite;
-  transform-origin: center center;
+    animation: ondear 6s ease-in-out infinite;
+    transform-origin: center center;
 }
 
+.text-capitalize{
+        text-align: left;
+        font-family: Arial Black;
+        font-weight: bold;
+        text-align: center;
+        font-size: 30px;
+        color: #fff;
+        text-shadow: 0 1px 0 #ddd, 0 2px 0 #ccc, 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 0 #acacac, 0 6px 1px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.3), 0 3px 5px rgba(0,0,0,0.2), 0 5px 10px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.2), 0 20px 20px rgba(0,0,0,0.15);
+
+
+
+}
+
+.book {
+    position: relative;
+    border-radius: 10px;
+    width: 180px;
+    height: 250px;
+    background-color: whitesmoke;
+    -webkit-box-shadow: 1px 1px 5px #000;
+    box-shadow: 1px 1px 5px #000;
+    -webkit-transform: preserve-3d;
+    -ms-transform: preserve-3d;
+    transform: preserve-3d;
+    -webkit-perspective: 2000px;
+    perspective: 600px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #000;
+    transition-duration: 0.5s;
+}
+
+.cover,
+.inner {
+    top: 0;
+    position: absolute;
+    z-index: 10;
+    background-color: lightgray;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform-origin: 0;
+    -ms-transform-origin: 0;
+    transform-origin: 0;
+    -webkit-box-shadow: 1px 1px 5px #000;
+    box-shadow: 1px 1px 5px #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.book:hover .cover {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform: rotatey(70deg);
+    -ms-transform: rotatey(70deg);
+    transform: rotatey(-70deg);
+}
+
+.book:hover .inner {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    transform: rotateZ(10deg) rotateX(-3deg) rotateY(-10deg) translateX(140px);
+    -webkit-box-shadow: 1px 1px 20px #000a;
+    box-shadow: 1px 1px 20px #000a;
+}
+
+.book:hover {
+    transform: rotateZ(-10deg);
+}
+.text {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
 @keyframes ondear {
-  0% {
-    transform: translateX(0) translateY(0) skewY(0deg);
-  }
+    0% {
+        transform: translateX(0) translateY(0) skewY(0deg);
+    }
 
-  15% {
-    transform: translateX(10px) translateY(3px) skewY(3deg);
-  }
+    15% {
+        transform: translateX(10px) translateY(3px) skewY(3deg);
+    }
 
-  30% {
-    transform: translateX(-5px) translateY(5px) skewY(6deg);
-  }
+    30% {
+        transform: translateX(-5px) translateY(5px) skewY(6deg);
+    }
 
-  45% {
-    transform: translateX(0) translateY(0) skewY(0deg);
-  }
+    45% {
+        transform: translateX(0) translateY(0) skewY(0deg);
+    }
 
-  60% {
-    transform: translateX(5px) translateY(-3px) skewY(-3deg);
-  }
+    60% {
+        transform: translateX(5px) translateY(-3px) skewY(-3deg);
+    }
 
-  75% {
-    transform: translateX(-8px) translateY(2px) skewY(4deg);
-  }
+    75% {
+        transform: translateX(-8px) translateY(2px) skewY(4deg);
+    }
 
-  90% {
-    transform: translateX(0) translateY(0) skewY(0deg);
-  }
+    90% {
+        transform: translateX(0) translateY(0) skewY(0deg);
+    }
 
-  100% {
-    transform: translateX(0) translateY(0) skewY(0deg);
-  }
+    100% {
+        transform: translateX(0) translateY(0) skewY(0deg);
+    }
+
+    .bi bi-heart-fill{
+        animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+
+    //Detalle pokemon
+
+
+
+
 }

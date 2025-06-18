@@ -9,9 +9,9 @@
                 <div class="centro">
                     <form>
                         <select name="tipo" id="tipo"  onchange="redirigirPorTipo()" class="form-select">
-                            <option class= "text-capitalize" value="">Selecciona un tipo de pokemon</option>
+                            <option id="select" class= "text-capitalize" value="">Selecciona un tipo de pokemon</option>
                             <option  class= "text-capitalize" th:each="tipo, iterStat : ${tipos}" th:value="${iterStat.index + 1}" th:text="${tipo.name}"></option>
-                        </select> 
+                        </select>  
                     </form>    
                     <img th:src="@{shari.png}" alt="Sharizard" class="Sharizard">
 
